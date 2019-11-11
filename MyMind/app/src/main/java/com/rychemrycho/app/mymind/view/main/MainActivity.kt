@@ -2,13 +2,9 @@ package com.rychemrycho.app.mymind.view.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.CalendarView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.rychemrycho.app.mymind.R
@@ -23,7 +19,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         bottomAppBar.setNavigationOnClickListener {
-            navigation_drawer.openDrawer(GravityCompat.START)
+            navigationDrawer.openDrawer(GravityCompat.START)
         }
 
         bottomAppBar.setOnMenuItemClickListener {
@@ -33,7 +29,7 @@ class MainActivity : BaseActivity() {
                     startActivity(intent)
                 }
                 it.itemId == R.id.item_option -> {
-                    Toast.makeText(this, it.title, Toast.LENGTH_LONG).show()
+//                    Toast.makeText(this, it.title, Toast.LENGTH_LONG).show()
                     val bottomSheetDialog = BottomSheetDialog(this)
                     val view: View = layoutInflater.inflate(R.layout.bottom_sheet_dialog, null)
                     bottomSheetDialog.setContentView(view)
@@ -44,8 +40,16 @@ class MainActivity : BaseActivity() {
             true
         }
 
-        fab.setOnClickListener {
-            Toast.makeText(this, "FAB", Toast.LENGTH_LONG).show()
+        calendarView.setOnDateChangeListener{
+                _, year, month, date -> Toast.makeText(this, "Tanggal $date bulan ${month + 1} tahun $year", Toast.LENGTH_LONG).show()
+        }
+
+        fabShowCreateOption.setOnClickListener {
+//            Toast.makeText(this, "FAB", Toast.LENGTH_LONG).show()
+            val bottomSheetDialog = BottomSheetDialog(this)
+            val view: View = layoutInflater.inflate(R.layout.bottom_sheet_create_dialog, null)
+            bottomSheetDialog.setContentView(view)
+            bottomSheetDialog.show()
         }
     }
 }

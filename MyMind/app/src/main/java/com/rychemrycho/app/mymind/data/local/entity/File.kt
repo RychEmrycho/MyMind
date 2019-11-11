@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "table_tags",
+    tableName = "table_files",
     foreignKeys = [
         ForeignKey(
             entity = Item::class,
@@ -15,9 +15,12 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Tag (
+data class File (
     @PrimaryKey(autoGenerate = true)
-    var tagId: Long,
-    var tagLabel: String,
+    var fileId: Long,
+    var fileName: String,
+    var fileExtension: String,
+    var fileType: String,
+    var filePath: String,
     var itemId: Long
 )

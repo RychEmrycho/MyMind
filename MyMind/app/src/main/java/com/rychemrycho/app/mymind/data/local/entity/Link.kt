@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "table_tags",
+    tableName = "table_links",
     foreignKeys = [
         ForeignKey(
             entity = Item::class,
@@ -15,9 +15,10 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Tag (
+data class Link (
     @PrimaryKey(autoGenerate = true)
-    var tagId: Long,
-    var tagLabel: String,
+    var linkId: Long,
+    var linkLabel: String,
+    var linkURL: String,
     var itemId: Long
 )

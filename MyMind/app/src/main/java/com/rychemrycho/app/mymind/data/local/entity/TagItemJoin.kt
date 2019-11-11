@@ -2,22 +2,24 @@ package com.rychemrycho.app.mymind.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "table_tags",
+    tableName = "table_tag_item_join",
+    primaryKeys = ["tagId", "itemId"],
     foreignKeys = [
+        ForeignKey(
+            entity = Tag::class,
+            parentColumns = ["tagId"],
+            childColumns = ["tagId"]
+        ),
         ForeignKey(
             entity = Item::class,
             parentColumns = ["itemId"],
-            childColumns = ["itemId"],
-            onDelete = ForeignKey.CASCADE
+            childColumns = ["itemId"]
         )
     ]
 )
-data class Tag (
-    @PrimaryKey(autoGenerate = true)
+data class TagItemJoin (
     var tagId: Long,
-    var tagLabel: String,
     var itemId: Long
 )

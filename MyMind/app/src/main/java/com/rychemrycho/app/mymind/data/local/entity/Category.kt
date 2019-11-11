@@ -3,9 +3,9 @@ package com.rychemrycho.app.mymind.data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_colors")
-data class Color (
+@Entity(tableName = "table_categories")
+data class Category(
     @PrimaryKey(autoGenerate = true)
-    var colorId: Long,
-    var colorCode: String
+    var categoryId: Long,
+    var categoryName: String
 )

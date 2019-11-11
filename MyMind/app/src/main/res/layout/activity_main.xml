@@ -1,5 +1,5 @@
 <androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/navigation_drawer"
+    android:id="@+id/navigationDrawer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
@@ -20,6 +20,7 @@
                 android:paddingBottom="100dp">
 
                 <CalendarView
+                    android:id="@+id/calendarView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -30,23 +31,26 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:paddingBottom="16dp">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:text="Idea"
-                        android:textStyle="bold"
                         android:textSize="18sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:text="Thought"
-                        android:textStyle="bold"
                         android:textSize="18sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Events"
-                        android:textStyle="bold"
                         android:textSize="18sp" />
                     <TextView
                         android:layout_width="match_parent"
@@ -54,11 +58,12 @@
                         android:text="Notes"
                         android:textStyle="bold"
                         android:textSize="18sp" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
                         android:text="Reminder"
-                        android:textStyle="bold"
                         android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -74,7 +79,7 @@
             style="@style/Widget.MaterialComponents.BottomAppBar"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/fabShowCreateOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_add_white_24dp"
